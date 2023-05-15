@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -64,7 +64,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>Todo App</h1>
+      <div className="d-flex justify-content-center">
+      <h1 >ToDo List</h1></div>
       <div className="mb-3">
         <input
           type="text"
@@ -83,9 +84,11 @@ const App = () => {
           placeholder="Description"
         />
       </div>
-      <button className="btn btn-primary mb-3" onClick={addTodo}>
-        Add Todo
-      </button>
+      <div className="d-flex justify-content-center">
+        <button className="btn btn-primary mb-3" onClick={addTodo}>
+          Add Todo
+        </button>
+      </div>
       <ul className="list-group">
         {todos.map((todo) => (
           <li key={todo.id} className="list-group-item d-flex align-items-center">
@@ -95,7 +98,7 @@ const App = () => {
               checked={todo.completed}
               onChange={() => updateTodo(todo)}
             />
-            <span>{todo.title}</span>
+            <span>{todo.title} : {todo.description}</span>
             <button className="btn btn-danger ms-auto" onClick={() => deleteTodo(todo)}>
               Delete
             </button>
